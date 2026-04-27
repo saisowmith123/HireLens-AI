@@ -1,0 +1,115 @@
+/* Neon‑Glow Dark Dashboard*/
+body {
+  background: radial-gradient(circle at 25% 25%, #121826 0%, #0c0d16 40%, #08070f 100%);
+  font-family: 'Inter', sans-serif;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+/***************************
+  Glassmorphism Card Base
+***************************/
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.12);
+}
+
+/***************************
+  Typography & Colors
+***************************/
+.neon-title {
+  background: linear-gradient(90deg, #64ffda, #14b8a6 60%, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.txt-gradient {
+  background: linear-gradient(90deg, #40c9ff, #e81cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: #a0a0a0;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.neon-number {
+  font-size: 4rem;
+  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons*/
+.neon-btn {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.neon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(103, 232, 249, 0.6);
+}
+
+/* Lists & Chat*/
+.list-group-item {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff;
+}
+
+.text-success {
+  color: #34d399 !important;
+}
+.text-danger {
+  color: #f43f5e !important;
+}
+
+.chat-window {
+  height: 220px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/*Form Controls*/
+.form-control, .input-group .form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e5e5e5;
+}
+.form-control:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+::placeholder {
+  color: #a1a1aa !important;
+}
+
+/***Spacing Utilities Override*/
+.mb-5 {
+  margin-bottom: 3rem !important;
+}
+
+.chat-window::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-window::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 3px;
+}

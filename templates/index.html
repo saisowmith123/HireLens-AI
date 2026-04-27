@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gemini Resume Analyzer</title>
+  <!-- Bootstrap core (utility only, we override most visuals) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Custom neon‑glow theme -->
+  <link rel="stylesheet" href="/static/style.css" />
+  <!-- Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container py-5">
+    <!-- ⇢ Header / Upload Panel -->
+    <div class="glass-card p-4 mb-5">
+      <h1 class="text-center display-5 mb-4 neon-title">Gemini Resume Analyzer</h1>
+
+      <form id="uploadForm" class="row g-3" autocomplete="off">
+        <div class="col-md-6">
+          <label class="form-label">Upload Resume (PDF)</label>
+          <input class="form-control" type="file" name="resume" required />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Upload Job Description (PDF)</label>
+          <input class="form-control" type="file" name="jobdesc" required />
+        </div>
+        <div class="col-12 text-center mt-3">
+          <button type="submit" class="btn neon-btn px-5">Analyze</button>
+          <!-- Loader -->
+          <div id="loadingSpinner" class="text-center mt-4 d-none">
+            <div class="spinner-border text-info" role="status"></div>
+            <p class="small mt-2">Analyzing, please wait…</p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- ⇢ Results Panel -->
+    <div id="results" class="d-none">
+      <!-- ATS SCORE -->
+      <div class="glass-card text-center p-4 mb-5">
+        <h2 class="txt-gradient mb-2">ATS Score</h2>
+        <h1 id="atsScore" class="fw-bold neon-number"></h1>
+      </div>
+
+      <!-- SKILLS COMPARISON -->
+      <div id="skillsSection" class="glass-card p-4 mb-5 d-none">
+        <h4 class="txt-gradient mb-4">Skills Overview</h4>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <h5 class="subtitle">Resume Skills</h5>
+            <ul id="resumeSkills" class="list-group list-group-flush"></ul>
+          </div>
+          <div class="col-md-6">
+            <h5 class="subtitle">JD Required Skills</h5>
+            <ul id="jdSkills" class="list-group list-group-flush"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- GEMINI CHAT -->
+      <div class="glass-card p-4 mb-5">
+        <h4 class="txt-gradient mb-3">Gemini Chat Assistant</h4>
+        <div class="input-group mb-3">
+          <input id="chatInput" class="form-control" placeholder="Ask something…" />
+          <button id="sendBtn" class="btn neon-btn" onclick="sendMessage()">Send</button>
+        </div>
+        <div id="chatLoading" class="text-muted small mb-2 d-none">Thinking…</div>
+        <div id="chatBox" class="chat-window"></div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="glass-card p-4 mb-4">
+        <h4 class="txt-gradient">Summary</h4>
+        <p id="summary" class="mt-2"></p>
+      </div>
+
+      <!-- MISSING SKILLS -->
+      <div class="glass-card p-4 mb-4">
+        <h4 class="txt-gradient">Missing / Mismatched Skills</h4>
+        <ul id="missingSkills" class="list-group list-group-flush"></ul>
+      </div>
+
+      <!-- IMPROVEMENTS -->
+      <div class="glass-card p-4 mb-5">
+        <h4 class="txt-gradient">Suggested Improvements</h4>
+        <ul id="improvements" class="list-group list-group-flush"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/main.js"></script>
+</body>
+</html>
